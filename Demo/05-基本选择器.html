@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本选择器</title>
+</head>
+<body>
+<div id="div1" class="box">div1(class="box")</div>
+<div id="div2" class="box">div2(class="box")</div>
+<div id="div3">div3</div>
+<span class="box">span(class="box")</span>
+<br>
+<ul>
+	<li>AAAAA</li>
+	<li title="hello">BBBBB(title="hello")</li>
+	<li class="box">CCCCC(class="box")</li>
+	<li title="hello">DDDDDD(title="hello")</li>
+</ul>
+
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+// 1.选择id为div1的元素
+// $('#div1').css('background-color', 'red');
+
+// 2.选择所有的div元素
+// $('div').css('background-color', 'red');
+
+// 3.选择所有class属性为box的元素
+// $('.box').css('background-color', 'red');
+
+// 4.选择所有的div和span元素
+// $('div,span').css('background-color', 'red');
+
+// 5.选择所有class属性为box的div元素
+// $('div.box').css('background-color', 'red');
+
+// 6.选择所有元素
+$('*').css('background-color', 'red');
+</script>
+</body>
+</html>

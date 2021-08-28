@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤选择器</title>
+</head>
+<body>
+<div id="div1" class="box">class为box的div1</div>
+<div id="div2" class="box">class为box的div2</div>
+<div id="div3">div3</div>
+<span class="box">class为box的span</span>
+<br/>
+<ul>
+	<li>AAAAA</li>
+	<li title="hello">BBBBB</li>
+	<li class="box">CCCCC</li>
+	<li title="hello">DDDDDD</li>
+	<li title="two">BBBBB</li>
+	<li style="display: none">我本来是隐藏的</li>
+</ul>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+// 1.选择第一个div
+// $('div:first').css('background', 'red');
+
+// 2.选择最后一个class为box的元素
+// $('.box:last').css('background', 'red');
+
+// 3.选择所有class属性不为box的div
+// $('div:not(.box)').css('background', 'red');
+// $('div[class!=box]').css('background', 'red');
+
+// 4.选择第二个和第三个li元素
+// $('li:nth-of-type(2),li:nth-of-type(3)').css('background', 'red');
+// $('li:eq(1),li:eq(2)').css('background', 'red');
+// $('li:gt(0):lt(2)').css('background', 'red');
+$('li:lt(3):gt(0)').css('background', 'red');
+
+// 5.选择内容为BBBBB的li
+// $('li:contains("BBBBB")').css('background', 'red');
+
+// 6.选择隐藏的li
+// $('li:hidden').show().css('background', 'red');
+
+// 7.送择有title属性的li元素
+// $('li[title]').css('background', 'red');
+
+// 8.选择所有属性title为hello的li元素
+// $('li[title=hello]').css('background', 'red');
+
+</script>
+</body>
+</html>

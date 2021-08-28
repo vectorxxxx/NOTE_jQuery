@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的2把利器</title>
+	<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+// jQuery函数：直接可用
+console.log($, typeof $);  // ƒ ( selector, context ) {}    function
+console.log(jQuery === $); // true
+// jQuery对象：执行jQuery函数得到它
+console.log($(), typeof $(), $() instanceof Object); // jQuery.fn.init {} "object" true
+</script>
+</body>
+</html>

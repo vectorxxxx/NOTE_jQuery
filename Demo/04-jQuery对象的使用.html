@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对象的使用</title>
+</head>
+<body>
+<button>测试一</button>
+<button>测试二</button>
+<button id="btn3">测试三</button>
+<button>测试四</button>
+
+<script src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+// 需求1.统计一共有多少个按钮
+// `size()`/`length`：包含的 DOM 元素个数
+var $buttons = $('button');
+console.log($buttons.length); // 4
+
+// 需求2.取出第2个button的文本
+console.log($('button:nth-child(2)').text()); // 测试二
+// `[index]`/`get(index)`：得到对应位置的 DOM 元素
+console.log($buttons[1].innerHTML, $buttons.get(1).innerHTML); // 测试二 测试二
+
+// 需求3.输出所有button标签的文本
+// `each()`：遍历包含的所有 DOM 元素
+// $buttons.each(function (index, domEle) {
+//     console.log(index, domEle.innerHTML); // 0 "测试一"   1 "测试二"   2 "测试三"    3 "测试四"
+// });
+$buttons.each(function () {
+    console.log(this.innerHTML); // 测试一 测试二 测试三 测试四
+});
+
+// 需求4.输出’测试三’按钮是所有按钮中的第几个
+console.log($("#btn3").index()); // 2
+
+// 伪数组
+console.log($buttons instanceof Array); // false
+//自定义一个伪数组
+var weiArr = {}
+weiArr.length = 0;
+weiArr[0] = 'atguigu';
+weiArr.length = 1;
+weiArr[1] = 123;
+weiArr.length = 2;
+for (var i = 0; i < weiArr.length; i++) {
+    var obj = weiArr[i];
+    console.log(i, obj); // 0 "atguigu"    1 123
+}
+console.log(weiArr.forEach, $buttons.forEach); //undefined undefined
+</script>
+</body>
+</html>

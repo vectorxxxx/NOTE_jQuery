@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的基本使用</title>
+	<!--使用原生DOM-->
+	<script type="text/javascript">
+	window.onload = function () {
+		document.getElementById("btn01").onclick = function () {
+			var username = document.getElementById("username").value;
+			username && alert(username);
+		}
+	}
+	</script>
+
+	<!-- 引入jQuery -->
+	<!--服务器本地库-->
+	<script src="js/jquery-3.6.0.js"></script>
+	<!--CDN远程库-->
+	<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>-->
+	<script type="text/javascript">
+	// 绑定文档加载完成的监听
+	$(function () {
+		// 绑定监听事件
+		var $btn02 = $("#btn02");
+		$btn02.click(function () {
+			var username = $("#username").val();
+			username && alert(username);
+		});
+	})
+	</script>
+</head>
+<body>
+用户名：<input type="text" id="username"/>
+<button id="btn01">确定（原生版）</button>
+<button id="btn02">确定（jQuery版）</button>
+</body>
+</html>

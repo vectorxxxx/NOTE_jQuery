@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格隔行变色</title>
+    <style>
+        div, span, p {
+            width: 140px;
+            height: 140px;
+            margin: 5px;
+            background: #aaa;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Verdana;
+        }
+
+        div. mini {
+            width: 55px;
+            height: 55px;
+            background-color: #aaa;
+            font-size: 12px;
+        }
+
+        div. hide {
+            display: none;
+        }
+
+        #data {
+            width: 600px;
+        }
+
+        #data, td, th {
+            border-collapse: collapse;
+            border: 1px solid #aaa;
+        }
+
+        th, td {
+            height: 28px;
+        }
+
+        #data thead {
+            background-color: #333399;
+            color: #ffffff;
+        }
+
+        .odd {
+            background-color: #ccccff;
+        }
+    </style>
+</head>
+<body>
+<table id="data">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>工资</th>
+        <th>入职时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Tom</td>
+        <td>$3500</td>
+        <td>2010-10-25</td>
+        <td><a href="javascript:void(0)">删除</a></td>
+    </tr>
+    <tr>
+        <td>Mary</td>
+        <td>$3400</td>
+        <td>2010-12-01</td>
+        <td><a href="javascript:void(0)">删除</a></td>
+    </tr>
+    <tr>
+        <td>King</td>
+        <td>$5900</td>
+        <td>2009-08-17</td>
+        <td><a href="javascript:void(0)">删除</a></td>
+    </tr>
+    <tr>
+        <td>Scott</td>
+        <td>$3800</td>
+        <td>2012-11-17</td>
+        <td><a href="javascript:void(0)">删除</a></td>
+    </tr>
+    <tr>
+        <td>Smith</td>
+        <td>$3100</td>
+        <td>2014-01-27</td>
+        <td><a href="javascript:void(0)）">删除</a></td>
+    </tr>
+    <tr>
+        <td>Allen</td>
+        <td>$3700</td>
+        <td>2011-12-05</td>
+        <td><a href="javascript:void(0)">删除</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $('#data tbody > tr:odd').css('backgroundColor', '#ccf');
+</script>
+</body>
+</html>

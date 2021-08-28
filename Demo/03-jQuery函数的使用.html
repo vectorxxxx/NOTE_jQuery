@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery函数的使用</title>
+</head>
+<body>
+<div>
+	<button id="btn">测试</button>
+	<br/>
+	<input type="text" name="msg1"><br/>
+	<input type="text" name="msg2"><br/>
+</div>
+
+
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+// 需求1.点击按钮：显示按钮的文本，显示一个新的输入框
+// 1、参数为函数：当 DOM 加载完成后，执行此回调函数
+$(function () { // 绑定文档加藏完成的监听
+    // 2、参数为选择器字符：查找所有匹配的标签并将它们封装成`jQuery`对象
+    $("#btn").click(function () {
+        // alert(this.innerHTML); // this是什么？发生事件的dom元素（<button>）
+        // 3、参数为 DOM 对象：将 dom 对象封装成`jQuery`对象
+        alert($(this).html());
+        // 4、参数为 html 标签字符串（用得少）：创建标签对象并封装成`jQuery`对象
+        $('<input type="text" name="msg3"><br/>').appendTo("div");
+    });
+
+    // 需求2.遍历输出数组中所有元素值
+    var arr = [3, 7, 4];
+    $.each(arr, function (index, item) {
+        console.log(index, item); // 0 3    1 7    2 4
+    });
+
+    // 需求3.去掉“my atguigu”两端的空格
+    var str = "    my atguigu   ";
+    console.log('===' + str + '===');           // ===    my atguigu   ===
+    console.log('===' + str.trim() + '===');    // ===my atguigu===
+    console.log('===' + $.trim(str) + '===');   // ===my atguigu===
+})
+</script>
+</body>
+</html>

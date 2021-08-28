@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工具方法</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    // 1、$.each()：遍历数组或对象中的数据
+    var obj = {
+        name: 'Tom',
+        setName: function (name) {
+            this.name = name;
+        }
+    }
+    $.each(obj, function (key, value) {
+        console.log(key, value); // name Tom    setName ƒ (name) {}
+    });
+
+    // 2、$.trim()：去除字符两边的空格
+    var str = '    ddd ';
+    console.log($.trim(str)); // ddd
+
+    // 3、$.type(obj)：得到数据的类型
+    console.log($.type($), $.type($())); // function object
+
+    // 4、$.isArray(obj)：判断是否是数组
+    console.log($.isArray($('body')), $.isArray([])); // false true
+
+    // 5、$.isFunction(obj)：判断是否是函数
+    console.log($.isFunction($), $.isFunction($())); // true false
+
+    // 6、$.isNumberic(obj)：判断是否是数字
+    console.log($.isNumeric('a'), $.isNumeric('2'), $.isNumeric(2)); // false true true
+
+    // 7、$.parseJSON(json)：解析json字符转换为js对象/数组
+    var jsonObj = '{"name":"Tom", "age": 18}';
+    console.log($.parseJSON(jsonObj)); // {name: "Tom", age: 18}
+    var jsonArr = '[{"name":"Tom", "age": 18}, {"name":"Jack", "age": 28}]';
+    console.log($.parseJSON(jsonArr)); // (2) [{…}, {…}]
+</script>
+</body>
+</html>
