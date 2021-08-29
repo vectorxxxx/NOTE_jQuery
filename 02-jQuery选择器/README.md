@@ -388,5 +388,3 @@ $(':submit').click(function () {
 ```
 
 ![image-20210828220129756](https://i.loli.net/2021/08/28/IAoNMRy73D18aVc.png)
-
-### 

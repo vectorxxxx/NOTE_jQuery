@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset和position</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 10px;
+            background: blue;
+        }
+
+        .div2 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background: red;
+        }
+
+        .div3 {
+            position: absolute;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div class="div2">测试offset</div>
+</div>
+<div class='div3'>
+    <button id="btn1">读取offset和position</button>
+    <button id="btn2">设置offset</button>
+</div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    // 1.点击btn1
+    $('#btn1').click(function () {
+        // 打印div1相对于页面左上角的位置
+        var offset1 = $('.div1').offset();
+        console.log(offset1.left, offset1.top); // 10 20
+        // 打印div2相对于页面左上角的位置
+        var offset2 = $('.div2').offset();
+        console.log(offset2.left, offset2.top); // 10 70
+
+        // 打印div1相对于父元素左上角的位置
+        var position1 = $('.div1').position();
+        console.log(position1.left, position1.top); // 10 20
+        // 打印div2相对于父元素左上角的位置
+        var position2 = $('.div2').position();
+        console.log(position2.left, position2.top); // 0 50
+    });
+
+    // 2.点击btn2
+    $('#btn2').click(function () {
+        // 设置div2相对于页面的左上角的位置
+        $('.div2').offset({left: 0, top: 0});
+    });
+</script>
+</body>
+</html>

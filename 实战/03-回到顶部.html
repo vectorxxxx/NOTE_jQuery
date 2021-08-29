@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <style>
+        #to_top {
+            width: 30px;
+            height: 40px;
+            font: 14px/20px arial;
+            text-align: center;
+            background: #06c;
+            position: fixed;
+            cursor: pointer;
+            color: #fff;
+            left: 1250px;
+            top: 500px;
+        }
+    </style>
+</head>
+<body style="height: 1000px">
+<div id="to_top">返回顶部</div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#to_top').click(function () {
+            // $('html,body').scrollTop(0);
+
+            var $html = $('html,body');
+            var distance = $(document.documentElement).scrollTop() + $(document.body).scrollTop();
+            var time = 500;
+            var intervalTime = 50;
+            var itemDistance = distance / (time / intervalTime);
+            var timer = setInterval(function () {
+                $html.scrollTop($html.scrollTop() - itemDistance);
+                if ($html.scrollTop() <= 0) {
+                    $html.scrollTop(0); // 修正位置
+                    clearInterval(timer); // 停止定时器
+                }
+            }, intervalTime);
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素的尺寸</title>
+    <style>
+        div {
+            width: 100px;
+            height: 150px;
+            background: red;
+            padding: 10px;
+            border: 10px #fbd850 solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>div</div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var $div = $('div');
+        console.log($div.height(), $div.width()); // 150, 100
+        console.log($div.innerHeight(), $div.innerWidth()); // 170 120
+        console.log($div.outerHeight(), $div.outerWidth()); // 190 140
+        console.log($div.outerHeight(true), $div.outerWidth(true)); // 210 160
+    })
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 [TOC]
 
-# `jQuery`简介
+# jQuery 简介
 
 ## 1、jQuery 初识
 

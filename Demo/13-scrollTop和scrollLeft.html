@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollTop和scrollLeft</title>
+</head>
+<body style="height: 1000px">
+<div style="border:1px solid black;width:100px;height:150px;overflow: auto">
+    This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a
+    text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This
+    is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a
+    text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This
+    is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a
+    text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This
+    is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a
+    text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This
+    is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a
+    text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This is a text.This
+    is a text.This is a text.This is a text.This is a text.This is a text.This is a text.
+</div>
+<br>
+<br>
+<br>
+<button id="btn1">得到scrollTop</button>
+<button id="btn2">设置scrollTop</button>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    // 1.得到div或页面滚动条的坐标
+    $('#btn1').click(function () {
+        console.log($('div').scrollTop()); // 400
+        // console.log($('html').scrollTop()); // 200
+        // console.log($('html').scrollTop() + $('body').scrollTop()); // 200
+        console.log($(document.documentElement).scrollTop() + $(document.body).scrollTop()); // 200
+    });
+    // 2.让div或页面的滚动条滚动到指定位置
+    $('#btn2').click(function () {
+        $('div').scrollTop(1000);
+        // $('html').scrollTop(100);
+        $('html,body').scrollTop(100);
+    });
+</script>
+</body>
+</html>
