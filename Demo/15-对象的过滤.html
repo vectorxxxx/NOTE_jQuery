@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的过滤</title>
+</head>
+<body>
+<ul>
+    <li>AAAAA</li>
+    <li title="hello" class="box2">BBBBB</li>
+    <li class="box">CCCCC</li>
+    <li title="hello">DDDDDD</li>
+    <li title="two"><span>BBBBB</span></li>
+</ul>
+<li>eeeee</li>
+<li>EEEEE</li>
+<br>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var $li = $('ul>li');
+        // 1.ul下li标签第一个
+        // $li[0].style.backgroundColor = 'red';
+        // $li.first().css('background-color', 'red');
+
+        // 2.ul下li标签的最后一个
+        // $li[$li.length - 1].style.backgroundColor = 'red';
+        // $li.last().css('background-color', 'red');
+
+        // 3.ul下li标签的第二个
+        // $li[1].style.backgroundColor = 'red';
+        // $li.eq(1).css('background-color', 'red');
+
+        // 4.ul下li标签中title属性为hello的
+        // $li.filter('[title=hello]').css('background-color', 'red');
+
+        // 5.ul下li标签中title属性不为hello的
+        // $li.filter('[title!=hello]').css('background-color', 'red');
+        // $li.not('[title=hello]').css('background-color', 'red');
+
+        // $li.filter('[title]').filter('[title!=hello]').css('background-color', 'red');
+        // $li.filter('[title!=hello]').filter('[title]').css('background-color', 'red');
+        // $li.filter('[title][title!=hello]').css('background-color', 'red');
+
+        // 6.ul下li标签中有span子标签的
+        // $li.has('span').css('background-color', 'red');
+
+        // 7.ul下li标签中class属性为box2的
+        // if ($li.filter('[class=box2]').hasClass('box2')) {
+        //     $li.filter('[class=box2]').css('background-color', 'red');
+        // }
+        if ($li.filter('[class=box2]').is('.box2')) {
+            $li.filter('[class=box2]').css('background-color', 'red');
+        }
+    })
+</script>
+</body>
+</html>

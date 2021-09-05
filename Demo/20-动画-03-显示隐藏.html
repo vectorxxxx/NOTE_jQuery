@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画-03-显示隐藏</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+        }
+    </style>
+<body>
+<button id="btn1">瞬间显示</button>
+<button id="btn2">慢慢显示</button>
+<button id="btn3">慢慢隐藏</button>
+<button id="btn4">显示隐藏切换</button>
+<div class="div1"></div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    var $div1 = $('.div1');
+    // 1.点击btn1，立即显示
+    $('#btn1').click(function () {
+        $div1.show();
+    });
+
+    // 2.点击btn2，慢慢显示
+    $('#btn2').click(function () {
+        $div1.show('slow');
+    });
+
+    // 3.点击btn3，慢慢隐藏
+    $('#btn3').click(function () {
+        $div1.hide('slow');
+    });
+
+    // 4.点击btn4，切换显示/隐藏
+    $('#btn4').click(function () {
+        $div1.toggle();
+    });
+</script>
+</body>
+</html>

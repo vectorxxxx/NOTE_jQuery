@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的查找</title>
+</head>
+<body>
+<div id="div1" class="box" title="one">class为box的div1</div>
+<div id="div2" class="box">class为box的div2</div>
+<div id="div3">div3</div>
+<span class="box">class为box的span</span>
+<br/>
+<div>
+    <ul>
+        <span>span文本1</span>
+        <li>AAAAA</li>
+        <li title="hello" class="box2">BBBBB</li>
+        <li class="box" id='cc'>CCCCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title="two"><span>span文本2</span></li>
+        <span>span文本3</span>
+    </ul>
+    <span>span文本444</span><br>
+    <li>eeeee</li>
+    <li>EEEEE</li>
+    <br>
+</div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var $ul = $('ul');
+        // 1.ul标签的第2个span子标签
+        // $ul.children('span:eq(1)').css('background-color', 'red');
+
+        // 2.ul标签的第2个span后代标签
+        // $ul.find('span:eq(1)').css('background-color', 'red');
+
+        // 3.ul标签的父标签
+        // $ul.parent().css('background-color', 'red');
+        // 3.ul标签的定位父标签
+        $ul.offsetParent().css('background-color', 'red');
+
+        // 4.id为cc的li标签的前一个li标签
+        // $('#cc').prev('li').css('background-color', 'red');
+        // 4.id为cc的li标签的前面所有li标签
+        // $('#cc').prevAll('li').css('background-color', 'red');
+        // 4.id为cc的li标签的后一个li标签
+        // $('#cc').next('li').css('background-color', 'red');
+        // 4.id为cc的li标签的后面所有li标签
+        // $('#cc').nextAll('li').css('background-color', 'red');
+
+        // 6.id为cc的li标签的所有兄弟li标签
+        // $('#cc').siblings('li').css('background-color', 'red');
+
+    });
+</script>
+</body>
+</html>

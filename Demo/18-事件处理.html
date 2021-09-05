@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        body {
+            height: 1000px;
+        }
+
+        .outer {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 10px;
+            background: blue;
+        }
+
+        .inner {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background: red;
+        }
+
+        .divBtn {
+            position: absolute;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">外部div
+    <div class="inner">内部div</div>
+</div>
+<div class='divBtn'>
+    <button id="btn1">取消绑定所有事件</button>
+    <button id="btn2">取消绑定mouseover事件</button>
+    <button id="btn3">测试事件坐标</button>
+    <a href="http://www.baidu.com" id="test4">百度一下</a>
+</div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    // 1.给.out绑定点击监听
+    // $('.outer').click(function () {
+    //   alert('click outer');
+    // });
+    // $('.outer').on('click', function () {
+    //     alert('click outer');
+    // });
+    // $('.outer').bind('click', function () {
+    //     alert('click outer');
+    // });
+
+    // 2、给.outer绑定鼠标移入和移出的事件监听
+    // $('.outer')
+    //     .bind('mouseenter', function () {
+    //         console.log('mouse enter');
+    //     })
+    //     .bind('mouseleave', function () {
+    //         console.log('mouse leave');
+    //     });
+    $('.outer')
+        .bind('mouseover', function () {
+            console.log('mouse over');
+        })
+        .bind('mouseout', function () {
+            console.log('mouse out');
+        });
+
+    // 2.给.inner绑定鼠标移入和移出的事件监听
+    // $('.inner')
+    //     .mouseenter(function () {
+    //         alert('mouse enter');
+    //     })
+    //     .mouseleave(function () {
+    //         alert('mouse leave');
+    //     });
+    // $('.inner')
+    //     .on('mouseenter', function () {
+    //         alert('mouse enter');
+    //     })
+    //     .on('mouseleave', function () {
+    //         alert('mouse leave');
+    //     });
+    // $('.inner')
+    //     .bind('mouseenter', function () {
+    //         alert('mouse enter');
+    //     })
+    //     .bind('mouseleave', function () {
+    //         alert('mouse leave');
+    //     });
+    // $('.inner').hover(
+    //     function () {
+    //         alert('mouse enter');
+    //     }, function () {
+    //         alert('mouse leave');
+    //     });
+
+    // 3.点击btn1解除.inner上的所有事件监听
+    $('#btn1').on('click', function () {
+        // $('.inner').off();
+        $('.inner').unbind();
+    });
+
+    // 4.点击btn2解除.inner上的mouseenter事件
+    $('#btn2').on('click', function () {
+        // $('.inner').off('mouseenter');
+        $('.inner').unbind('mouseenter');
+    });
+
+    // 5.点击btn3得到事件坐标
+    $('#btn3').on('click', function (event) {
+        console.log('[' + event.offsetX + ', ' + event.offsetY + ']'); // [54, 8]
+        console.log('[' + event.pageX + ', ' + event.pageY + ']'); // [349, 259]
+        console.log('[' + event.clientX + ', ' + event.clientY + ']'); // [349, 59]
+    });
+
+    // 6.点击.inner区域，外部点击监听不响应
+    $('.inner').on('click', function (event) {
+        alert('click inner');
+        event.stopPropagation(); // 停止冒泡
+    });
+
+    // 7.点击链接，如果当前时间是偶数不跳转
+    $('#test4').on('click', function (event) {
+        if (Date.now() % 2 === 0) {
+            event.preventDefault(); // 阻止默认行为
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试window.onload与$(document).ready()</title>
+</head>
+<body>
+<h1>测试window.onload与$(document).ready()</h1>
+<img id="logo"
+     src="https://gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2017-05-19/6fec71d56242b74eb24b4ac80b817eac.png"/>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    // 1.直接打印img的宽度,观察其值
+    console.log('直接', $('#logo').width()); // 直接 0
+
+    // 2.在$(function(){})中打印img的宽度
+    $(function () {
+        console.log('ready', $('#logo').width()); // ready 0
+    });
+
+    // 3.在window.onload中打印img的宽度
+    window.onload = function () {
+        console.log('onload', $('#logo').width()); // onload 190
+    };
+
+    // 4.在img加载完成后打印宽度
+    $('#logo').on('load', function () {
+        console.log('img load', $('#logo').width()); // img load 190
+    });
+</script>
+</body>
+</html>

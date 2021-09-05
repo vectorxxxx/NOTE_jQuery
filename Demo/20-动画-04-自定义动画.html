@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画-04-自定义动画</title>
+    <style>
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top: 50px;
+            left: 300px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">逐渐扩大</button>
+<button id="btn2">移动到指定位置</button>
+<button id="btn3">移动指定距离</button>
+<button id="btn4">停止动画</button>
+<div class="div1">
+    Hello World!
+</div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    var $div1 = $('.div1');
+    // 1.逐新扩大
+    //  1）.宽/高都扩为200px
+    //  2）.宽先扩为200px，高后扩为200px
+    $('#btn1').click(function () {
+        // $div1.animate({
+        //     width: 200,
+        //     height: 200
+        // })
+        $div1.animate({
+            width: 200
+        }, 1000).animate({
+            height: 200
+        }, 1000);
+    });
+
+    // 2.移动到指定位置
+    //  1）.移动到（500,100）处
+    //  2）.移动到（100,20）处
+    $('#btn2').click(function () {
+        $div1.animate({
+            left: 500,
+            top: 100
+        }, 1000).animate({
+            left: 100,
+            top: 20
+        }, 1000);
+    });
+
+    // 3.移动指定的距离
+    //  1）.移动距离为（100,50）
+    //  2）.移动距离为（-100, -20）
+    $('#btn3').click(function () {
+        $div1.animate({
+            left: '+=100',
+            top: '+=50'
+        }, 1000).animate({
+            left: '-=100',
+            top: '-=20'
+        }, 1000);
+    });
+
+    // 4.停止动画
+    $('#btn4').click(function () {
+        // $div1.stop();
+        $div1.stop(true);
+    });
+</script>
+</body>
+</html>

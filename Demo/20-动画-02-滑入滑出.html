@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画-02-滑入滑出</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+        }
+    </style>
+<body>
+<button id="btn1">慢慢收缩</button>
+<button id="btn2">慢慢展开</button>
+<button id="btn3">收缩/展开切换</button>
+<div class="div1"></div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    var $div1 = $('.div1');
+    // 1.点击btn1，向上滑动
+    $('#btn1').click(function () {
+        $div1.slideUp(1000);
+    });
+
+    // 2.点击btn3，向下滑动
+    $('#btn2').click(function () {
+        $div1.slideDown('slow');
+    });
+    // 3.点btn3，向上/向下切换
+    $('#btn3').click(function () {
+        $div1.slideToggle('slow', 'linear', function () {
+            alert('动画结束');
+        });
+    });
+</script>
+</body>
+</html>

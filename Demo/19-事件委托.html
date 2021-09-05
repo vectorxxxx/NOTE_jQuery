@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+</head>
+<body>
+<ul>
+    <li>11111</li>
+    <li>22222</li>
+    <li>33333</li>
+    <li>44444</li>
+</ul>
+<br>
+<button id="btn1">添加新的li</button>
+<button id="btn2">删除u1上的事件委托的监听器</button>
+<br>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    // 点击li背景就会变为红色
+    $('ul').delegate('li', 'click', function () {
+        this.style.backgroundColor = 'red';
+    });
+
+    // 点击btn1就添加一个li
+    $('#btn1').on('click', function () {
+        $('ul').append('<li>新增的li...</li>');
+    });
+
+    $('#btn2').on('click', function () {
+        $('ul').undelegate('click');
+    });
+</script>
+</body>
+</html>

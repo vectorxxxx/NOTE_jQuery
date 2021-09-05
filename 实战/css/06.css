@@ -1,0 +1,100 @@
+/*去除内边距，没有链按下划线*/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    padding: 20px;
+}
+
+/*最外围的div*/
+#container {
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    position: relative; /*相对定位*/
+    margin: 0 auto;
+}
+
+/*包含所有图片的<div>*/
+#list {
+    width: 4200px; /*7张图片的宽:7*600*/
+    height: 400px;
+    position: absolute; /*绝对定位*/
+    z-index: 1;
+    left: -600px;
+}
+
+/*所有的图片<img>*/
+#list img {
+    float: left; /*浮在左侧*/
+    width: 600px;
+    height: 100%;
+}
+
+/*包含所有圆点按钮的<div>*/
+#pointsDiv {
+    position: absolute;
+    height: 10px;
+    width: 100px;
+    z-index: 2;
+    bottom: 20px;
+    left: 250px;
+}
+
+/*所有的圆点<span>*/
+#pointsDiv span {
+    cursor: pointer;
+    float: left;
+    border: 1px solid #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333;
+    margin-right: 5px;
+}
+
+/*第一个<span>*/
+#pointsDiv .on {
+    background: orangered;
+}
+
+/*切换图标<a>*/
+.arrow {
+    cursor: pointer;
+    display: none;
+    line-height: 39px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 2;
+    top: 180px;
+    background-color: RGBA(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+/*鼠标移到切英图标上时*/
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/*鼠标移到整个div区域时*/
+#container:hover .arrow {
+    display: block;
+}
+
+/*显示*/
+/*上一个切英图标的左外边距*/
+#prev {
+    left: 20px;
+}
+
+/*下一个切英图标的右外边距*/
+#next {
+    right: 20px;
+}

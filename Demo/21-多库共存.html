@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多库共存</title>
+</head>
+<body>
+<script type="text/javascript" src="js/myLib.js"></script>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    //释放的使用衣
+    jQuery.noConflict();
+    //调用myLib中的s
+    $();
+    //要想使用jQuery的功能，只能使用jQuery
+    jQuery(function () {
+        console.log('文档加载完成');
+    });
+    console.log('+++++');
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加删除员工</title>
+    <link rel="stylesheet" type="text/css" href="css/css.css"/>
+</head>
+<body>
+<table id="employeeTable">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="deleteEmp?id=001">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Jerry</td>
+        <td>jerry@sohu.com</td>
+        <td>8000</td>
+        <td><a href="deleteEmp?id=002">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>bob@tom.com</td>
+        <td>10000</td>
+        <td><a href="deleteEmp?id=003">Delete</a></td>
+    </tr>
+</table>
+
+<div id="formDiv">
+    <h4>添加新员工</h4>
+    <table>
+        <tr>
+            <td class="word">name:</td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">email:</td>
+            <td class="inp">
+                <input type="text" name="email" id="email"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">salary:</td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button id="addEmpButton" value="abc">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    // 添加
+    $('#addEmpButton').click(function () {
+        // 获取输入
+        var $empName = $('#empName');
+        var $email = $('#email');
+        var $salary = $('#salary');
+        var empName = $empName.val();
+        var email = $email.val();
+        var salary = $salary.val();
+        // 插入输入
+        $('<tr></tr>')
+            .append('<td>' + empName + '</td>')
+            .append('<td>' + email + '</td>')
+            .append('<td>' + salary + '</td>')
+            .append('<td><a href="deleteEmp?id=' + Date.now() + '">Delete</a></td>')
+            .appendTo($('#employeeTable').children('tbody')); // 插入到默认生成的tbody下
+        // 清除输入
+        $empName.val('');
+        $email.val('');
+        $salary.val('');
+    });
+
+    // 删除
+    $('#employeeTable').delegate('a', "click", function () {
+        var $tr = $(this).parent().parent();
+        var name = $tr.children(':first').html();
+        if (confirm('确定删除' + name + '的相关信息吗？')) {
+            $tr.remove();
+        }
+        return false;
+    });
+</script>
+</body>
+</html>
