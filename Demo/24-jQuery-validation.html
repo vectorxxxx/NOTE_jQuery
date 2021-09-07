@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--
+		required: "This field is required.",
+		remote: "Please fix this field.",
+		email: "Please enter a valid email address.",
+		url: "Please enter a valid URL.",
+		date: "Please enter a valid date.",
+		dateISO: "Please enter a valid date (ISO).",
+		number: "Please enter a valid number.",
+		digits: "Please enter only digits.",
+		equalTo: "Please enter the same value again.",
+		maxlength: $.validator.format( "Please enter no more than {0} characters." ),
+		minlength: $.validator.format( "Please enter at least {0} characters." ),
+		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
+		range: $.validator.format( "Please enter a value between {0} and {1}." ),
+		max: $.validator.format( "Please enter a value less than or equal to {0}." ),
+		min: $.validator.format( "Please enter a value greater than or equal to {0}." ),
+		step: $.validator.format( "Please enter a multiple of {0}." )
+-->
+<form action="xxx" id="myForm">
+    <p>用户名（必须，最小6位）：<input id="uname" name="username" type="text" required minlength="6"></p>
+    <p>密码（必须，6到8位）：<input id="pwd1" name="pwd1" type="password" required rangelength="[6,8]"></p>
+    <p>确认密码（与密码相同）：<input id="pwd2" name="pwd2" type="password" required equalTo="#pwd1"></p>
+    <p><input type="submit" value="注册"></p>
+</form>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="js/jquery-validation-1.19.3/dist/jquery.validate.js"></script>
+<script type="text/javascript">
+    // 声明式验证：程序员只需要声明各种验证规则，可以自定义验证错误信息
+    $('#myForm').validate({
+        messages: {
+            username: {
+                required: '用户名不能为空',
+                minlength: '用户名最少6位'
+            },
+            pwd1: {
+                required: '密码不能为空',
+                rangelength: '用户名6到8位'
+            },
+            pwd2: {
+                required: '确认密码不能为空',
+                equalTo: '确认密码不相同'
+            },
+        }
+    });
+</script>
+</body>
+</html>
