@@ -13,7 +13,7 @@
 
 ---
 
-- :link: Github：[[GitHub](https://github.com/vectorxxxx/NOTE_jQuery)](https://github.com/vectorxxxx/NOTE_jQuery)
+- :link: Github：[vectorxxxx/NOTE_jQuery: 尚硅谷jQuery教程 jquery从入门到精通 (github.com)](https://github.com/vectorxxxx/NOTE_jQuery)
 - :link: Gitee：[NOTE_jQuery: 尚硅谷jQuery教程 jquery从入门到精通 (gitee.com)](https://gitee.com/vectorx/NOTE_jQuery)
 - :link: CC：[VectorUx / NOTE_jQuery · CODE CHINA (csdn.net)](https://codechina.csdn.net/qq_35925558/NOTE_jQuery)
 - :link: 语雀：[jQuery从入门到精通 · 语雀 (yuque.com)](https://www.yuque.com/u21195183/dpf298)
